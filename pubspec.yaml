@@ -35,6 +35,7 @@ dependencies:
   simple_animations: ^2.2.1
   supercharged: ^1.6.0
   font_awesome_flutter: ^8.8.1
+  path_drawing: ^0.4.1
 
 
 dev_dependencies:

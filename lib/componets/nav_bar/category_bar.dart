@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:webpagetransition/componets/cards/topic_cards.dart';
+import 'package:webpagetransition/utils/animations/animated_opacity.dart';
 import 'package:webpagetransition/utils/animations/fade_in_effect.dart';
 import 'package:webpagetransition/utils/shapes/draw_rectdot_pattern.dart';
 import 'package:webpagetransition/utils/shapes/topic_card_shapes.dart';
@@ -249,24 +250,45 @@ class _CategoryBarState extends State<CategoryBar> {
     } else if (ResponsiveLayOut.isMediumVersion(context)) {
       return SizedBox(
         height: 160, // this should be equal to the topic card height
-        child: PageView.builder(
-          // this must have a height (can't be unbounded height if scrollAxis is horizontal)
-          itemBuilder: (context, index) {
-            return FadeIn(
-              delay: index < 1005 ? (index - 999 + 1).toDouble() : 1,
+        child: Stack(
+          children: [
+            Positioned(
+              top: 50,
+              left: 40,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 100, //has to have this
+                child: AnimatedOpacityWidget(
+                  child: CustomPaint(
+                    painter: DrawDashedCurvedLine(
+                      color: Colors.blue.shade700.withOpacity(.2),
+                      strokeWidth: 12,
+                      paintingStyle: PaintingStyle.stroke,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            PageView.builder(
+              // this must have a height (can't be unbounded height if scrollAxis is horizontal)
+              itemBuilder: (context, index) {
+                return FadeIn(
+                  delay: index < 1005 ? (index - 999 + 1).toDouble() : 1,
 
-              /// use the index to set up the animation delay - this FadeIn happens, every time the Category card builds - will this cause lag???
-              /// fade in effect is really suitable for builder :D
-              child: _topicCardUIList[index % 6],
-            ); // this hack is so op!!!! infinite scroll   use  index/6 (which is 5+1) !!!!!  + no itemCount
-          },
-          controller: _pageControllerMedium,
-          scrollDirection: Axis.horizontal,
-          onPageChanged: (index) {
-            setState(() {
-              _currentPage = index;
-            });
-          },
+                  /// use the index to set up the animation delay - this FadeIn happens, every time the Category card builds - will this cause lag???
+                  /// fade in effect is really suitable for builder :D
+                  child: _topicCardUIList[index % 6],
+                ); // this hack is so op!!!! infinite scroll   use  index/6 (which is 5+1) !!!!!  + no itemCount
+              },
+              controller: _pageControllerMedium,
+              scrollDirection: Axis.horizontal,
+              onPageChanged: (index) {
+                setState(() {
+                  _currentPage = index;
+                });
+              },
+            ),
+          ],
         ),
       );
     } else {
