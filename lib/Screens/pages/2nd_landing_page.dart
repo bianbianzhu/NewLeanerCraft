@@ -115,7 +115,95 @@ class StartLearningPage extends StatelessWidget {
         ],
       );
     } else if (ResponsiveLayOut.isMediumVersion(context)) {
-      return Container();
+      return Stack(
+        children: [
+          Positioned(
+            left: MediaQuery.of(context).size.width / 3.5,
+            top: 320,
+            child: AnimatedOpacityWidget(
+              child: LoopScale(
+                child: Container(
+                  height: 120,
+                  width: 380,
+                  decoration: BoxDecoration(
+                    color: kThemeGreen.withOpacity(.2),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            child: AnimatedOpacityWidget(
+              child: LoopRotate(
+                child: Container(
+                  height: 1200,
+                  width: 1200,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.pinkAccent.withOpacity(.2), width: 45),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: MediaQuery.of(context).size.width / 2,
+            top: -160,
+            child: AnimatedOpacityWidget(
+              child: FloatingToEffect(
+                millDuration: 16000,
+                translateValue: 1020,
+                child: CustomPaint(
+                  painter: DrawCircle(
+                    radius: 75,
+                    color: Colors.deepOrangeAccent.withOpacity(.2),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width / 4,
+              top: 200,
+            ),
+            child: TextContent(),
+          ),
+          Positioned(
+            left: 60,
+            top: -80,
+            child: WavePattern(),
+          ),
+          Positioned(
+            bottom: -55,
+            left: -55,
+            child: AnimatedPattern(
+              patternSize: 75,
+              pattern: SquareDotPattern7(
+                color: Colors.deepOrange,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: -100,
+            child: RotatedPattern(
+              containerHeight: 205,
+              patternSize: 75,
+              pattern: DotWithTriangle(),
+            ),
+          ),
+          Positioned(
+            top: 42,
+            left: MediaQuery.of(context).size.width / 3,
+            child: AnimatedOpacityWidget(
+              child: LoopRotate(
+                child: RectangleDotPatternLarge(),
+              ),
+            ),
+          ),
+        ],
+      );
     } else {
       return Container();
     }

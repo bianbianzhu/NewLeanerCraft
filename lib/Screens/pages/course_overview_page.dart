@@ -59,8 +59,8 @@ class OverviewPage extends StatelessWidget {
                     ),
                     Wrap(
                       // wrap of the cards to avoid overflow of row//
-                      spacing: 48,
-                      runSpacing: 48,
+                      spacing: 32,
+                      runSpacing: 24,
                       children: create4CourseCard(),
                     ),
                   ],

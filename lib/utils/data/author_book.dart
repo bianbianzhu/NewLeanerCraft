@@ -12,7 +12,7 @@ class AuthorBook {
         name: 'John Legend',
         job: 'UI Designer',
         quote:
-            'I worked as a kennel assistant at a local animal hospital during the summer before my freshman year of college. It was there I discovered what I wanted to do as a career. I decided I would go to college and focus on becoming a small-animal veterinarian, so that\'s what I did. I have been working at the same animal hospital ever since.',
+            'I worked as a kennel assistant at a local animal hospital. It was there I discovered what I wanted to do as a career. I decided I would go to college and focus on becoming a small-animal veterinarian, so that\'s what I did.',
         imageName: 'man1'),
     Author(
         name: 'Ashton Kutcher',
