@@ -158,7 +158,11 @@ class _LandingPageState extends State<LandingPage> {
         ],
       );
     } else {
-      return Container();
+      return Container(
+        child: Center(child:
+          Text('Working on'),
+        ),
+      );
     }
   }
 }
