@@ -77,7 +77,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ],
       );
-    } else {
+    } else if (ResponsiveLayOut.isMediumVersion(context)) {
       return Column(
         children: <Widget>[
           NavBar(),
@@ -157,6 +157,8 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ],
       );
+    } else {
+      return Container();
     }
   }
 }
