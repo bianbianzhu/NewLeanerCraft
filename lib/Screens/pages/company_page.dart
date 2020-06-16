@@ -144,7 +144,78 @@ class CompanyPage extends StatelessWidget {
         ),
       );
     } else {
-      return Container();
+      return SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+//            color: Colors.grey.shade300,
+              width: MediaQuery.of(context).size.width - 6,
+              height: 350,
+              child: JoinCard(),
+            ),
+            SizedBox(
+              height: 32,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                LanguageCard(),
+                SizedBox(
+                  height: 16,
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                ComInfoCard(),
+                SizedBox(
+                  height: 16,
+                ),
+                ComInfoCard(
+                  title: 'Connect with us',
+                  sub1: 'Blog',
+                  sub2: 'Contact Us',
+                  sub3: 'Help Center',
+                  sub4: 'Career',
+                  sub5: 'Donate',
+                  sub6: 'Affiliate',
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                ComInfoCard(
+                  title: 'Products',
+                  sub1: 'Our Plans',
+                  sub2: 'Free Trial',
+                  sub3: 'Academic Solutions',
+                  sub4: 'Business Solutions',
+                  sub5: 'Government Solutions',
+                  sub6: 'Enterprise',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 80,
+            ),
+            Row(
+              children: [
+                TextButton(),
+                SizedBox(
+                  width: 32,
+                ),
+                TextButton(
+                  btnName: 'Privacy Policy',
+                ),
+                SizedBox(
+                  width: 32,
+                ),
+                TextButton(
+                  btnName: 'Cookie Policy',
+                ),
+              ],
+            ),
+          ],
+        ),
+      );
     }
   }
 }

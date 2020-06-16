@@ -122,7 +122,55 @@ class OverviewPage extends StatelessWidget {
         ),
       );
     } else {
-      return Container();
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 32,
+          vertical: 48,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Popular Courses',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 20,
+                          fontFamily: 'Merriweather'),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        'View all',
+                        style: TextStyle(
+                          color: kThemeGreen,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ).showCursorOnHover.moveUpOnHover,
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 22,
+              ),
+              Wrap(
+                runSpacing: 48,
+                spacing: 16,
+                children: create4CourseCard(),
+              ),
+            ],
+          ),
+        ),
+      );
     }
   }
 

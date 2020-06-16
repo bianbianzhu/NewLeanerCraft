@@ -101,7 +101,7 @@ class _ProfileDetailState extends State<ProfileDetail> {
           ],
         ),
       );
-    } else {
+    } else if (ResponsiveLayOut.isMediumVersion(context)) {
       return AnimatedContainer(
         duration: Duration(milliseconds: 300),
         padding: EdgeInsets.symmetric(
@@ -177,6 +177,59 @@ class _ProfileDetailState extends State<ProfileDetail> {
                   ),
                 ),
               ],
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '"',
+              style: TextStyle(
+                  fontSize: 45,
+                  fontWeight: FontWeight.bold,
+                  color: kThemeGreen,
+                  fontFamily: 'SourceSansPro'),
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            SizedBox(
+              width: 300,
+              child: Text(
+                _authorBook.favAuthors[widget.index].quote,
+                style: TextStyle(
+                  height: 2,
+                  fontFamily: 'Merriweather',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Text(
+              _authorBook.favAuthors[widget.index].name,
+              style: TextStyle(
+                color: kThemeGreen,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Text(
+              _authorBook.favAuthors[widget.index].job,
+              style: TextStyle(
+                color: Colors.black26,
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+              ),
             ),
           ],
         ),

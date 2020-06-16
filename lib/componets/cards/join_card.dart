@@ -383,7 +383,136 @@ class JoinCard extends StatelessWidget {
         ),
       );
     } else {
-      return Container();
+      return Center(
+        child: AnimatedOpacityWidget(
+          millDuration: 500,
+          child: Stack(
+            overflow: Overflow.visible,
+            children: [
+              ComplexTransform(
+                delay: 3,
+                child: Container(
+                  padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width / 30,
+                    right: MediaQuery.of(context).size.width / 30,
+                    top: 16,
+                    bottom: 16,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue.shade900,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        bottomLeft: Radius.circular(12),
+                        topRight: Radius.elliptical(12, 22),
+                        bottomRight: Radius.circular(12)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 12,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FadeIn(
+                            delay: 2,
+                            child: Text(
+                              'What are you waiting for?',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 11,
+                                letterSpacing: .8,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 12,
+                          ),
+                          FadeIn(
+                            delay: 2.5,
+                            child: Text(
+                              'Join LearnerCraft today',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontFamily: 'Merriweather',
+                                letterSpacing: 2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 64,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          FadeIn(
+                            delay: 3,
+                            child: RaisedButton(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 12,
+                                horizontal: 16,
+                              ),
+                              elevation: 1,
+                              onPressed: () {},
+                              child: Text(
+                                'Get started for free',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                              color: Colors.orange,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3),
+                              ),
+                            ).showCursorOnHover.moveUpOnHover,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          FadeIn(
+                            delay: 3.5,
+                            child: RaisedButton(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 12,
+                                horizontal: 16,
+                              ),
+                              elevation: 0,
+                              child: Text(
+                                'Become a teacher',
+                                style: TextStyle(
+                                  color: Colors.indigo,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  letterSpacing: 0.2,
+                                ),
+                              ),
+                              onPressed: () {},
+                              color: Color(0xFFF6FAFF),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(3),
+                                side: BorderSide(
+                                  color: Colors.blue.shade100,
+                                ),
+                              ),
+                            ).showCursorOnHover.moveUpOnHover,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
     }
   }
 }

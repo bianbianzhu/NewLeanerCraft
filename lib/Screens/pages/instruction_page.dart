@@ -158,7 +158,73 @@ class InstructionPage extends StatelessWidget {
         ],
       );
     } else {
-      return Container();
+      return Stack(
+        alignment: Alignment.center,
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FadeIn(
+                  delay: 1,
+                  child: Text(
+                    'How it works for you',
+                    style: TextStyle(
+                        fontFamily: 'Merriweather',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 26,
+                        letterSpacing: 1.3),
+                  ),
+                ),
+                SizedBox(
+                  height: 64,
+                ),
+                Wrap(
+                  spacing: 32,
+                  children: [
+                    FadeIn(delay: 1.5, child: InstructionCard()),
+                    FadeIn(
+                      delay: 2,
+                      child: InstructionCard(
+                        color: Colors.teal,
+                        title: 'Finish the course',
+                        icon: Icons.check_box,
+                      ),
+                    ),
+                    FadeIn(
+                      delay: 2.5,
+                      child: InstructionCard(
+                        color: Colors.deepOrange,
+                        title: 'Ready for the market',
+                        icon: Icons.local_mall,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: 80,
+            left: 10,
+            child: FadeIn(
+              delay: 1.5,
+              child: SizedBox(
+                  height: 80, width: 80, child: RectangleDotPatternLarge()),
+            ),
+          ),
+          Positioned(
+            bottom: 80,
+            left: 18,
+            child: FadeIn(
+              delay: 1.5,
+              child: SizedBox(
+                  height: 90, width: 90, child: RectangleDotPatternLarge()),
+            ),
+          ),
+        ],
+      );
     }
   }
 }

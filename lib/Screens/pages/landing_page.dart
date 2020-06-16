@@ -158,10 +158,75 @@ class _LandingPageState extends State<LandingPage> {
         ],
       );
     } else {
-      return Container(
-        child: Center(child:
-          Text('Working on'),
-        ),
+      return Column(
+        children: <Widget>[
+          NavBar(),
+          Stack(
+            overflow: Overflow.visible,
+            children: [
+              Positioned(
+                right: MediaQuery.of(context).size.width / 8,
+                bottom: -20,
+                child: AnimatedOpacityWidget(
+                  child: LoopRotateTransition(
+                    millDuration: 4200,
+                    child: RotationTransition(
+                      turns: AlwaysStoppedAnimation(25 / 360), //amazing
+                      child: Stack(
+                        overflow: Overflow.visible,
+                        children: [
+                          SizedBox(
+                            width: 80,
+                            height: 18,
+                            child: CustomPaint(
+                              painter: DrawCurvedLne(
+                                color: Colors.orange.shade100,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 11,
+                            child: SizedBox(
+                              width: 80,
+                              height: 18,
+                              child: CustomPaint(
+                                painter: DrawCurvedLne(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                right: MediaQuery.of(context).size.width / 16,
+                top: -180,
+                child: AnimatedPattern(
+                  patternSize: 70,
+                  pattern: SizedBox(
+                    child: SquareDotPattern7(
+                      color: Colors.orange,
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: MediaQuery.of(context).size.width / 16,
+                top: -150,
+                child: AnimatedPattern(
+                  patternSize: 100,
+                  pattern: RectangleDotPatternLarge(),
+                ),
+              ),
+              Center(
+                //TODO: set up for the medium and mobile
+                child: LandingContent(),
+              ),
+            ],
+          ),
+        ],
       );
     }
   }
@@ -369,7 +434,98 @@ class LandingContent extends StatelessWidget {
         ],
       );
     } else {
-      return Container();
+      return Column(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              FadeIn(
+                delay: 1,
+                child: Text(
+                  'Find the Best Courses\n& Become Master',
+                  style: TextStyle(
+                      fontFamily: 'Merriweather',
+                      fontWeight: FontWeight.w900,
+                      fontSize: 30,
+                      letterSpacing: 1.3),
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              FadeIn(
+                delay: 1.5,
+                child: Text(
+                  '100% free online learning platform from the world\'s best\nuniversities and teachers',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'SourceSansPro'),
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  FadeIn(
+                    delay: 2,
+                    child: RaisedButton(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 16,
+                      ),
+                      elevation: 1,
+                      onPressed: () {},
+                      child: Text(
+                        'Get started for free',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                      color: kThemeGreen,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(3),
+                      ),
+                    ).showCursorOnHover.moveUpOnHover,
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  FadeIn(
+                    delay: 2.5,
+                    child: RaisedButton(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 16,
+                      ),
+                      elevation: 0,
+                      child: Text(
+                        'Become a teacher',
+                        style: TextStyle(
+                          color: Colors.indigo,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.2,
+                        ),
+                      ),
+                      onPressed: () {},
+                      color: Color(0xFFF6FAFF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(3),
+                        side: BorderSide(
+                          color: Colors.blue.shade100,
+                        ),
+                      ),
+                    ).showCursorOnHover.moveUpOnHover,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      );
     }
   }
 }

@@ -148,7 +148,73 @@ class BestSellerPage extends StatelessWidget {
         ),
       );
     } else {
-      return Container();
+      return Padding(
+        padding: EdgeInsets.only(
+          top: 32,
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: (MediaQuery.of(context).size.width / 12) + 42,
+                ),
+                child: Text(
+                  'Popular Topics',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 20,
+                      fontFamily: 'Merriweather'),
+                ),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              CategoryBar(),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: (MediaQuery.of(context).size.width / 12) + 42,
+                    vertical: 32),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Best Selling Courses',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 20,
+                          fontFamily: 'Merriweather'),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Text(
+                        'View all',
+                        style: TextStyle(
+                          color: kThemeGreen,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ).showCursorOnHover.moveUpOnHover,
+                  ],
+                ),
+              ),
+              Center(
+                child: Wrap(
+                  runSpacing: 48,
+                  spacing: 48,
+                  children: create4CourseCard(),
+                ),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+            ],
+          ),
+        ),
+      );
     }
   }
 }
