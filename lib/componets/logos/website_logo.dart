@@ -29,9 +29,12 @@ class _LargeLogoState extends State<LargeLogo> {
     super.initState();
     _opacity = 0;
     Future.delayed(Duration(milliseconds: 6500), () {
-      setState(() {
-        _opacity = 1;
-      });
+      if (this.mounted) {
+        //setState() called after dispose()
+        setState(() {
+          _opacity = 1;
+        });
+      }
     });
   }
 

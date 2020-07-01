@@ -14,7 +14,7 @@ class ComInfoCard extends StatelessWidget {
   ComInfoCard(
       {this.title = 'About LearnerCraft',
       this.sub1 = 'About',
-      this.sub2 = 'Open edX',
+      this.sub2 = 'Open edx',
       this.sub3 = 'News',
       this.sub4 = 'Press center',
       this.sub5 = 'Become a teacher',

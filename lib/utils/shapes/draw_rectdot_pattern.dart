@@ -62,11 +62,11 @@ class DotWithTriangle extends StatelessWidget {
           children: <Widget>[
             PatternElement3(),
             SizedBox(
-              height: 10.1,
+              height: 9.8,
             ),
             PatternElement3(),
             SizedBox(
-              height: 10.1,
+              height: 9.8,
             ),
             PatternElement3(),
           ],

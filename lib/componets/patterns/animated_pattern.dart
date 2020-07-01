@@ -27,10 +27,12 @@ class _AnimatedPatternState extends State<AnimatedPattern> {
     super.initState();
     _patternWidth = widget.patternSize / 5;
     Future.delayed(Duration(milliseconds: 1500), () {
-      setState(() {
-        _patternWidth = widget.patternSize;
-        _opacity = 1;
-      });
+      if (this.mounted) {
+        setState(() {
+          _patternWidth = widget.patternSize;
+          _opacity = 1;
+        });
+      }
     });
   }
 

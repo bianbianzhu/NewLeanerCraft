@@ -181,8 +181,11 @@ class _CategoryBarState extends State<CategoryBar> {
 
   ///Eventually, decided to use the next page method
   _scrollToNext() {
-    _pageController.nextPage(
-        duration: Duration(milliseconds: 2000), curve: Curves.linear);
+    if (_pageController.hasClients) {
+      //'positions.isNotEmpty': PageController.page cannot be accessed before a PageView is built with it.
+      _pageController.nextPage(
+          duration: Duration(milliseconds: 2000), curve: Curves.linear);
+    }
   }
 
   /// every 1999 millisecond, call the nextPage method
